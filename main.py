@@ -152,6 +152,8 @@ def load_config():
     ).strip() or webhooks.get("telegram_chat_id", "")
 
     # 邮件配置
+    print('find email',os.environ.get("EMAIL_FROM", ""))
+    print(os.environ)
     config["EMAIL_FROM"] = os.environ.get("EMAIL_FROM", "").strip() or webhooks.get(
         "email_from", ""
     )
@@ -201,7 +203,7 @@ def load_config():
         notification_sources.append(f"Telegram({token_source}/{chat_source})")
     print('==Email==')
     if config["EMAIL_FROM"] and config["EMAIL_PASSWORD"] and config["EMAIL_TO"]:
-        print('in block')
+        print('in block',config["EMAIL_FROM"],config["EMAIL_TO"])
         from_source = "环境变量" if os.environ.get("EMAIL_FROM") else "配置文件"
         print(from_source)
         notification_sources.append(f"邮件({from_source})")
