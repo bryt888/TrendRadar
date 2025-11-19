@@ -62,7 +62,12 @@ jobs:
           NTFY_SERVER_URL: ${{ secrets.NTFY_SERVER_URL }}
           NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
           GITHUB_ACTIONS: true
-        run: python main.py
+        run: 
+          echo "Checking EMAIL_FROM availability:"
+          echo "Value: $EMAIL_FROM"
+          echo "Checking EMAIL_PASSWORD availability:"
+          echo "Value: $EMAIL_PASSWORD"
+            #python main.py
 
       - name: Commit and push if changes
         run: |
