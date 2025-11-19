@@ -199,8 +199,11 @@ def load_config():
         )
         chat_source = "环境变量" if os.environ.get("TELEGRAM_CHAT_ID") else "配置文件"
         notification_sources.append(f"Telegram({token_source}/{chat_source})")
+    print('==Email==')
     if config["EMAIL_FROM"] and config["EMAIL_PASSWORD"] and config["EMAIL_TO"]:
+        print('in block')
         from_source = "环境变量" if os.environ.get("EMAIL_FROM") else "配置文件"
+        print(from_source)
         notification_sources.append(f"邮件({from_source})")
 
     if config["NTFY_SERVER_URL"] and config["NTFY_TOPIC"]:
