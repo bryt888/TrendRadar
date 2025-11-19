@@ -179,6 +179,9 @@ def load_config():
         "ntfy_token", ""
     )
 
+    print('config:',config)
+
+    
     # 输出配置来源信息
     notification_sources = []
     if config["FEISHU_WEBHOOK_URL"]:
